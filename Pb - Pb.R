@@ -1,3 +1,5 @@
+##Pb/Pb##
+
 ggplot(
   data = NULL, aes(x=pb206_204, y=pb207_204)) +
   geom_point(
@@ -9,7 +11,6 @@ ggplot(
   coord_fixed(ratio = 1) +
   xlab(expression(frac(Pb[206],Pb[204]))) + ylab(expression(frac(Pb[207],Pb[204]))) + 
   theme_bw()
-
 
 ggplot(
   data = NULL, aes(x=pb206_204, y=pb208_204)) +
