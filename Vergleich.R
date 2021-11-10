@@ -6,10 +6,7 @@ ggplot(
     data=filter(Cau, culture=="Kura-Arax" | culture=="Maykop"), 
     aes(colour=culture)) +
   geom_point(
-    data=Nahal_Mishmar, 
-    aes(colour=site)) +
-  geom_point(
-    data=filter(Cau, site=="Arslantepe"), 
+    data=filter(Cau, site=="Arslantepe" | site=="Nahal Mishmar"), 
     aes(colour=site))  + 
   coord_fixed(ratio = 1)
 
@@ -19,12 +16,10 @@ ggplot(
     data=filter(Cau, culture=="Kura-Arax" | culture=="Maykop"), 
     aes(colour=culture)) +
   geom_point(
-    data=Nahal_Mishmar, 
-    aes(colour=site)) +
-  geom_point(
-    data=filter(Cau, site=="Arslantepe"), 
+    data=filter(Cau, site=="Arslantepe" | site=="Nahal Mishmar"), 
     aes(colour=site))  + 
   coord_fixed(ratio = 1)
+
 
 ##1/as - Pb##
 
@@ -34,11 +29,8 @@ ggplot(
     data=filter(Cau, culture=="Kura-Arax" | culture=="Maykop"), 
     aes(colour=culture)) +
   geom_point(
-    data=Nahal_Mishmar, 
-    aes(colour=site)) +
-  geom_point(
-    data=filter(Cau, site=="Arslantepe"), 
-    aes(colour=site)) +
+    data=filter(Cau, site=="Arslantepe" | site=="Nahal Mishmar"), 
+    aes(colour=site))  + 
   scale_x_log10()
 
 ggplot(
@@ -47,11 +39,8 @@ ggplot(
     data=filter(Cau, culture=="Kura-Arax" | culture=="Maykop"), 
     aes(colour=culture)) +
   geom_point(
-    data=Nahal_Mishmar, 
-    aes(colour=site)) +
-  geom_point(
-    data=filter(Cau, site=="Arslantepe"), 
-    aes(colour=site)) +
+    data=filter(Cau, site=="Arslantepe" | site=="Nahal Mishmar"), 
+    aes(colour=site))  + 
   scale_x_log10()
 
 ggplot(
@@ -60,11 +49,8 @@ ggplot(
     data=filter(Cau, culture=="Kura-Arax" | culture=="Maykop"), 
     aes(colour=culture)) +
   geom_point(
-    data=Nahal_Mishmar, 
-    aes(colour=site)) +
-  geom_point(
-    data=filter(Cau, site=="Arslantepe"), 
-    aes(colour=site)) +
+    data=filter(Cau, site=="Arslantepe" | site=="Nahal Mishmar"), 
+    aes(colour=site))  + 
   scale_x_log10()
 
 ##1/sb - Pb##
@@ -75,11 +61,8 @@ ggplot(
     data=filter(Cau, culture=="Kura-Arax" | culture=="Maykop"), 
     aes(colour=culture)) +
   geom_point(
-    data=Nahal_Mishmar, 
-    aes(colour=site)) +
-  geom_point(
-    data=filter(Cau, site=="Arslantepe"), 
-    aes(colour=site)) +
+    data=filter(Cau, site=="Arslantepe" | site=="Nahal Mishmar"), 
+    aes(colour=site))  + 
   scale_x_log10()
 
 ggplot(
@@ -88,11 +71,8 @@ ggplot(
     data=filter(Cau, culture=="Kura-Arax" | culture=="Maykop"), 
     aes(colour=culture)) +
   geom_point(
-    data=Nahal_Mishmar, 
-    aes(colour=site)) +
-  geom_point(
-    data=filter(Cau, site=="Arslantepe"), 
-    aes(colour=site)) +
+    data=filter(Cau, site=="Arslantepe" | site=="Nahal Mishmar"), 
+    aes(colour=site))  + 
   scale_x_log10()
 
 ggplot(
@@ -101,11 +81,8 @@ ggplot(
     data=filter(Cau, culture=="Kura-Arax" | culture=="Maykop"), 
     aes(colour=culture)) +
   geom_point(
-    data=Nahal_Mishmar, 
-    aes(colour=site)) +
-  geom_point(
-    data=filter(Cau, site=="Arslantepe"), 
-    aes(colour=site)) +
+    data=filter(Cau, site=="Arslantepe" | site=="Nahal Mishmar"), 
+    aes(colour=site))  + 
   scale_x_log10()
 
 ##1/pb - Pb##
@@ -116,11 +93,8 @@ ggplot(
     data=filter(Cau, culture=="Kura-Arax" | culture=="Maykop"), 
     aes(colour=culture)) +
   geom_point(
-    data=Nahal_Mishmar, 
-    aes(colour=site)) +
-  geom_point(
-    data=filter(Cau, site=="Arslantepe"), 
-    aes(colour=site)) +
+    data=filter(Cau, site=="Arslantepe" | site=="Nahal Mishmar"), 
+    aes(colour=site))  + 
   scale_x_log10()
 
 ggplot(
@@ -129,11 +103,8 @@ ggplot(
     data=filter(Cau, culture=="Kura-Arax" | culture=="Maykop"), 
     aes(colour=culture)) +
   geom_point(
-    data=Nahal_Mishmar, 
-    aes(colour=site)) +
-  geom_point(
-    data=filter(Cau, site=="Arslantepe"), 
-    aes(colour=site)) +
+    data=filter(Cau, site=="Arslantepe" | site=="Nahal Mishmar"), 
+    aes(colour=site))  + 
   scale_x_log10()
 
 ggplot(
@@ -142,12 +113,10 @@ ggplot(
     data=filter(Cau, culture=="Kura-Arax" | culture=="Maykop"), 
     aes(colour=culture)) +
   geom_point(
-    data=Nahal_Mishmar, 
-    aes(colour=site)) +
-  geom_point(
-    data=filter(Cau, site=="Arslantepe"), 
-    aes(colour=site)) +
+    data=filter(Cau, site=="Arslantepe" | site=="Nahal Mishmar"), 
+    aes(colour=site))  + 
   scale_x_log10()
+
 
 ##Doppellogs##
 
@@ -157,10 +126,7 @@ ggplot(
     data=filter(Cau, culture=="Kura-Arax" | culture=="Maykop"), 
     aes(colour=culture)) +
   geom_point(
-    data=Nahal_Mishmar, 
-    aes(colour=site)) +
-  geom_point(
-    data=filter(Cau, site=="Arslantepe"), 
+    data=filter(Cau, main=="cu", site=="Arslantepe" | site=="Nahal Mishmar"), 
     aes(colour=site)) +
   scale_x_log10() + scale_y_log10() + coord_fixed(ratio = 1)
 
@@ -170,10 +136,7 @@ ggplot(
     data=filter(Cau, culture=="Kura-Arax" | culture=="Maykop"), 
     aes(colour=culture)) +
   geom_point(
-    data=Nahal_Mishmar, 
-    aes(colour=site)) +
-  geom_point(
-    data=filter(Cau, site=="Arslantepe"), 
+    data=filter(Cau, main=="cu", site=="Arslantepe" | site=="Nahal Mishmar"), 
     aes(colour=site)) +
   scale_x_log10() + scale_y_log10() + coord_fixed(ratio = 1)
 
@@ -183,10 +146,7 @@ ggplot(
     data=filter(Cau, culture=="Kura-Arax" | culture=="Maykop"), 
     aes(colour=culture)) +
   geom_point(
-    data=Nahal_Mishmar, 
-    aes(colour=site)) +
-  geom_point(
-    data=filter(Cau, site=="Arslantepe"), 
+    data=filter(Cau, main=="cu", site=="Arslantepe" | site=="Nahal Mishmar"), 
     aes(colour=site)) +
   scale_x_log10() + scale_y_log10() + coord_fixed(ratio = 1)
 
@@ -216,9 +176,6 @@ ggplot(
     data=filter(Cau, culture=="Kura-Arax" | culture=="Maykop"), 
     aes(colour=culture)) +
   geom_point(
-    data=Nahal_Mishmar, 
-    aes(colour=site)) +
-  geom_point(
-    data=filter(Cau, site=="Arslantepe"), 
+    data=filter(Cau, main=="cu", site=="Arslantepe" | site=="Nahal Mishmar"), 
     aes(colour=site)) +
   scale_x_log10() + scale_y_log10() + coord_fixed(ratio = 1)

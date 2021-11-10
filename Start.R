@@ -1,5 +1,3 @@
-library(DBI)
-con <- dbConnect(odbc::odbc(), "PostgreSQL", timeout = 10)
 library(usethis)
 library(gitcreds)
 library(dplyr)
