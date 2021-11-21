@@ -1,12 +1,14 @@
 library(DBI)
-con <- dbConnect(odbc::odbc(), "PostgreSQL", timeout = 10)
-query <- dbSendQuery(con, "SELECT find_id, part_id, site_dt, feature, culture_en, find_character_dt, type_dt, main, ca_id, ca.method_id, struct_id, struct_type, ca.remarks, find.ref, ars+ni+sb+ag, cu, sn, pb, zn, bi, ag, sb, ars, fe, ni, co, au, pb206_204, pb207_204, pb208_204, pb207_206, pb208_206  FROM cau.find LEFT JOIN cau.feature USING (feature_id, site_id) LEFT JOIN cau.ca USING (find_id, site_id) LEFT JOIN cau.pb USING (find_id, site_id, part_id) LEFT JOIN cau.site USING (site_id) LEFT JOIN cau.culture USING (culture_id) LEFT JOIN cau.find_character USING (find_character_id) LEFT JOIN cau.main USING (main_id) LEFT JOIN cau.type USING (type_id) LEFT JOIN cau.struct USING (find_id, site_id) LEFT JOIN cau.struct_type USING (struct_type_id)  GROUP BY find_id, part_id, site_dt, feature, culture_en, find_character_dt, type_dt, main, ca_id, ca.method_id, struct_id, struct_type, ca.remarks, find.ref, cu, sn, pb, zn, bi, ag, sb, ars, fe, ni, co, au, pb206_204, pb207_204, pb208_204, pb207_206, pb208_206 ")
+con <- dbConnect(odbc(), Driver = "PostgreSQL Driver", Server = "192.168.178.32", 
+                 Database = "postgres", UID = "postgres", PWD = "?Post!gres,fo24", 
+                 Port = 5432)
+query <- dbSendQuery(con, "SELECT find_id, part_id, site_id, site_dt, feature, culture_en, find_character_en, type_dt, main, ca_id, ca.method_id, struct_id, struct_type, ca.remarks, find.ref, ars+ni+sb+ag, cu, sn, pb, zn, bi, ag, sb, ars, fe, ni, co, au, pb206_204, pb207_204, pb208_204, pb207_206, pb208_206  FROM cau.find LEFT JOIN cau.feature USING (feature_id, site_id) LEFT JOIN cau.ca USING (find_id, site_id) LEFT JOIN cau.pb USING (find_id, site_id, part_id) LEFT JOIN cau.site USING (site_id) LEFT JOIN cau.culture USING (culture_id) LEFT JOIN cau.find_character USING (find_character_id) LEFT JOIN cau.main USING (main_id) LEFT JOIN cau.type USING (type_id) LEFT JOIN cau.struct USING (find_id, site_id) LEFT JOIN cau.struct_type USING (struct_type_id)  GROUP BY find_id, part_id, site_id, site_dt, feature, culture_en, find_character_en, type_dt, main, ca_id, ca.method_id, struct_id, struct_type, ca.remarks, find.ref, cu, sn, pb, zn, bi, ag, sb, ars, fe, ni, co, au, pb206_204, pb207_204, pb208_204, pb207_206, pb208_206 ")
 Cau <- dbFetch(query)
 Cau <- rename(Cau, site = site_dt)
 Cau <- rename(Cau, culture = culture_en)
 Cau <- rename(Cau, type = type_dt)
 Cau <- rename(Cau, SUMME = "?column?")
-Cau <- rename(Cau, find_character = find_character_dt)
+Cau <- rename(Cau, find_character = find_character_en)
 Cau <- rename(Cau, Cu = cu)
 Cau <- rename(Cau, Sn = sn)
 Cau <- rename(Cau, Pb = pb)
