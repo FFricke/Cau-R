@@ -1,0 +1,25 @@
+query_pb_raw <- dbSendQuery(con, 
+                            "SELECT find_id, part_id, pb_id, ca_id, site_id, site_dt, culture_en, find_character_en, find_character_id, type_dt, main, clust_e, cu, sn, pb, zn, bi, ag, sb, ars, fe, ni, co, au, pb206_204, pb207_204, pb208_204
+                          FROM cau.pb LEFT JOIN  cau.ca USING (find_id, site_id, part_id) LEFT JOIN cau.clust_e USING (ca_id, site_id) LEFT JOIN cau.find USING (find_id, site_id) LEFT JOIN cau.site USING (site_id)  LEFT JOIN cau.feature USING (feature_id, site_id)  LEFT JOIN cau.culture USING (culture_id) LEFT JOIN cau.find_character USING (find_character_id) LEFT JOIN cau.type USING (type_id) LEFT JOIN cau.main USING (main_id)
+                          GROUP BY find_id, part_id, pb_id, ca_id, site_id, site_dt, culture_en, find_character_en, find_character_id, type_dt, main,  clust_e, cu, sn, pb, zn, bi, ag, sb, ars, fe, ni, co, au, pb206_204, pb207_204, pb208_204;")
+
+pb <- dbFetch(query_pb_raw)
+
+pb$clust_e <- as.character(pb$clust_e)
+pb <- rename(pb, site = site_dt)
+pb <- rename(pb, culture = culture_en)
+pb <- rename(pb, type = type_dt)
+pb <- rename(pb, find_character = find_character_en)
+pb <- rename(pb, Cu = cu)
+pb <- rename(pb, Sn = sn)
+pb <- rename(pb, Pb = pb)
+pb <- rename(pb, Zn = zn)
+pb <- rename(pb, Bi = bi)
+pb <- rename(pb, Ag = ag)
+pb <- rename(pb, Sb = sb)
+pb <- rename(pb, As = ars)
+pb <- rename(pb, Fe = fe)
+pb <- rename(pb, Ni = ni)
+pb <- rename(pb, Co = co)
+pb <- rename(pb, Au = au)
+pb$find_character_id <- as.character(pb$find_character_id)
