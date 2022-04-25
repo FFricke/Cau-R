@@ -1,7 +1,7 @@
 query_ca_raw <- dbSendQuery(con, 
-                            "SELECT find_id, part_id, site_dt, site_id, ca_id, lab_dt, culture_en, region_dt, find_character_id, find_character_en, type_dt, main, ars+ni+sb+ag, cu, sn, pb, zn, bi, ag, sb, ars, fe, ni, co, au 
+                            "SELECT find_id, part_id, site_dt, site_id, ca_id, lab_dt, culture_en, region_id, region_dt, find_character_id, find_character_en, type_dt, main, ars+ni+sb+ag, cu, sn, pb, zn, bi, ag, sb, ars, fe, ni, co, au 
                             FROM cau.ca LEFT JOIN cau.find USING (find_id, site_id) LEFT JOIN cau.site USING (site_id) LEFT JOIN stf.lab USING (lab_id) LEFT JOIN cau.feature USING (feature_id, site_id) LEFT JOIN cau.culture USING (culture_id) LEFT JOIN cau.find_character USING (find_character_id) LEFT JOIN cau.type USING (type_id) LEFT JOIN cau.main USING (main_id) LEFT JOIN cau.region USING (region_id) 
-                            GROUP BY find_id, part_id, site_id, site_dt, ca_id, lab_dt, culture_en, region_dt, find_character_id, find_character_en, type_dt, main, cu, sn, pb, zn, bi, ag, sb, ars, fe, ni, co, au;")
+                            GROUP BY find_id, part_id, site_id, site_dt, ca_id, lab_dt, culture_en, region_id, region_dt, find_character_id, find_character_en, type_dt, main, cu, sn, pb, zn, bi, ag, sb, ars, fe, ni, co, au;")
 
 ca <- dbFetch(query_ca_raw)
 ca <- rename(ca, site = site_dt)
