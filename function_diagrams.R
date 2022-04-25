@@ -1,4 +1,4 @@
-diagramm_ca <- function(data, element_1, element_2, variable, spectrum)
+diagramm_ca <- function(data, element_1, element_2, variable, spectrum, labelling)
   {
   ggplot(
     data = filter_ca, aes(x={{element_1}}, y={{element_2}})) +
@@ -6,7 +6,7 @@ diagramm_ca <- function(data, element_1, element_2, variable, spectrum)
                aes(fill={{variable}})) +
     scale_x_log10() + scale_y_log10() + coord_fixed(ratio = 1) + 
     theme_bw() +
-    scale_fill_manual(values = c(spectrum)) + 
+    scale_fill_manual(values = c(spectrum), labels = c(labelling)) + 
     guides(fill=guide_legend(title=NULL))
 }
 
