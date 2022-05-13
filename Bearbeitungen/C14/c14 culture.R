@@ -23,17 +23,17 @@ c14_Katakombnaya <-calibrate(x=filter_c14$cra, errors=filter_c14$error, calCurve
 c14_Katakombnaya_sum <- spd(c14_Katakombnaya, timeRange = c(8000,3500))
 plot(c14_Katakombnaya_sum, calendar='BCAD')
 
-filter_c14 <- filter(c14, site_dt=="Arsantepe")
+filter_c14 <- filter(c14, site=="Arsantepe")
 c14_Arsantepe <-calibrate(x=filter_c14$cra, errors=filter_c14$error, calCurves = 'intcal20')
 c14_Arsantepe_sum <- spd(c14_Arsantepe, timeRange = c(8000,3500))
 plot(c14_Arsantepe_sum, calendar='BCAD')
 
-filter_c14 <- filter(c14, site_dt=="Shengavit")
+filter_c14 <- filter(c14, site=="Shengavit")
 c14_Shengavit <-calibrate(x=filter_c14$cra, errors=filter_c14$error, calCurves = 'intcal20')
 c14_Shengavit_sum <- spd(c14_Shengavit, timeRange = c(8000,3500))
 plot(c14_Shengavit_sum, calendar='BCAD')
 
-filter_c14 <- filter(c14, site_dt=="Nahal Mishmar")
+filter_c14 <- filter(c14, site=="Nahal Mishmar")
 c14_NahalMishmar <-calibrate(x=filter_c14$cra, errors=filter_c14$error, calCurves = 'intcal20')
 c14_NahalMishmar_sum <- spd(c14_NahalMishmar, timeRange = c(8000,3500))
 plot(c14_NahalMishmar_sum, calendar='BCAD')

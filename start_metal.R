@@ -19,7 +19,7 @@ col_culture <- c(
   "20" = "#cab2d6",
   "16" = "#6a3d9a",
   "17" = "#ffff99",
-  "23" = "#b15928"
+  "25" = "#b15928"
 )
 
 lab_dt_culture <- c(
@@ -34,7 +34,7 @@ lab_dt_culture <- c(
   "20" = "Mondsee",
   "16" = "Cortaillod",
   "17" = "Glockenbecher",
-  "23" = "Stollhof"
+  "25" = "Nordkaukasus"
 )
 
 lab_en_culture <- c(
@@ -49,7 +49,7 @@ lab_en_culture <- c(
   "20" = "Mondsee",
   "16" = "Cortaillod",
   "17" = "Bell-Beaker",
-  "23" = "Stollhof"
+  "25" = "North-Caucasian"
 )
 
 col_find_character <- c(
@@ -98,12 +98,12 @@ col_cluster <- c(
   "1" = "#f8766d",
   "2" = "#7cae00",
   "3" = "#00bfc4",
-  "4" = "#00bfc4",
+  "4" = "#c181f1",
   "NA" = "#676767"
 )
 
 lab_cluster <- c(
-  "1" = "Cluster_1",
+  "1" = "Cluster 1",
   "2" = "Cluster 2",
   "3" = "Cluster 3",
   "4" = "Cluster 4",

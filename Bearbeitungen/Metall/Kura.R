@@ -1,11 +1,21 @@
-Kura <- filter(ca, culture=="Kura-Arax")
+filter_pb <- filter(pb, culture=="Kura-Arax")
 
-ggplot(Kura,
-       aes(x=As, y=Sb)) +
-  geom_point(aes(colour=find_character)) +
-  scale_x_log10() + scale_y_log10() +  coord_fixed(ratio = 1)
+diagramm_1_pb_206(element = As, variable = find_character_id, spectrum = col_find_character, labelling = lab_en_find_character)
+diagramm_1_pb_207(element = As, variable = find_character_id, spectrum = col_find_character, labelling = lab_en_find_character)
+diagramm_1_pb_208(element = As, variable = find_character_id, spectrum = col_find_character, labelling = lab_en_find_character)
 
-ggplot(Kura,
-       aes(x=As, y=Ni)) +
-  geom_point(aes(colour=find_character)) +
-  scale_x_log10() + scale_y_log10() +  coord_fixed(ratio = 1)
+filter_ca <- filter(ca, culture=="Kura-Arax")
+
+diagramm_ca(element_1 = As, element_2 = Sb, variable = find_character_id, spectrum = col_find_character, labelling = lab_en_find_character)
+diagramm_box_ca(element = As, variable = find_character_id, spectrum = col_find_character, labelling = lab_en_find_character)
+
+
+filter_pb <- filter(pb)
+
+diagramm_1_pb_206(element = As, variable = clust_e, spectrum = col_cluster, labelling = lab_cluster)
+diagramm_1_pb_207(element = As, variable = clust_e, spectrum = col_cluster, labelling = lab_cluster)
+diagramm_1_pb_208(element = As, variable = clust_e, spectrum = col_cluster, labelling = lab_cluster)
+
+diagramm_1_pb_206(element = Ni, variable = clust_e, spectrum = col_cluster, labelling = lab_cluster)
+diagramm_1_pb_207(element = Ni, variable = clust_e, spectrum = col_cluster, labelling = lab_cluster)
+diagramm_1_pb_208(element = Ni, variable = clust_e, spectrum = col_cluster, labelling = lab_cluster)
