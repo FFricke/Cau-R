@@ -1,6 +1,7 @@
 ##Base##
 install.packages("tidyverse")
 install.packages("devtools")
+install.packages("odbc")
 
 ##Metal##
 install.packages("usethis")
