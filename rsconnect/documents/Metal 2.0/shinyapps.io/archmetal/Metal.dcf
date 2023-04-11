@@ -1,0 +1,14 @@
+name: Metal
+title: Metal
+username:
+account: archmetal
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 8298766
+bundleId: 6841082
+url: https://archmetal.shinyapps.io/Metal/
+when: 1676302447.6866
+lastSyncTime: 1676302447.68662
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: .RData|.Rprofile|cluster-analysis/mclust.R|cluster-analysis/period clusters.R|corrospondence/CA.R|diss/Clustanz.R|diss/density.R|diss/pca.R|startup/functions_app.R|startup/start_metal.R
