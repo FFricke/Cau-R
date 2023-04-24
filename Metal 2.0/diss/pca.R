@@ -80,14 +80,14 @@ library(factoextra)
                                 sum(case when mclust = 16 then 1 else 0 end) as Cluster6_4,
                                 sum(case when mclust = 17 then 1 else 0 end) as Cluster6_5,
                                 sum(case when mclust = 18 then 1 else 0 end) as Cluster7,
-                                count(mclust) as all
+                                count(mclust) as all, culture_en
                                 
                                 
                                 from cau.feature join cau.find using (feature_id, site_id) join cau.ca using (find_id, site_id) join cau.culture using (culture_id) join cau.site using (site_id)
                                 
                                 where region_id != 6
                             
-                                group by site_dt, culture_id;
+                                group by site_dt, culture_id, culture_en;
                             ")
     
     crossSite[3] <- crossSite[3]/crossSite[21]
@@ -112,6 +112,7 @@ library(factoextra)
     
     crossSite2 <- filter(crossSite, all>=6)
     crossSite3 <- crossSite2[, (3:20)]
+    crossSiteClust <- crossSite2
     rownames(crossSite3) <- unite(crossSite2, "rownames", site_dt:culture_id)$rownames
   }
   
@@ -139,14 +140,14 @@ library(factoextra)
                                 sum(case when mclust = 16 then 1 else 0 end) as Cluster6_4,
                                 sum(case when mclust = 17 then 1 else 0 end) as Cluster6_5,
                                 sum(case when mclust = 18 then 1 else 0 end) as Cluster7,
-                                count(mclust) as all
+                                count(mclust) as all, culture_en
                                 
                                 
                                 from cau.feature join cau.find using (feature_id, site_id) join cau.ca using (find_id, site_id) join cau.culture using (culture_id) join cau.site using (site_id) join cau.region using (region_id)
                                 
                                 where region_id != 6
                             
-                                group by region_en, culture_id;
+                                group by region_en, culture_id, culture_en;
                             ")
     
     crossRegion[3] <- crossRegion[3]/crossRegion[21]
@@ -187,7 +188,7 @@ crossRegionPCAViz
 
 
 
-crossSitePCA <- PCA(crossSite3)
+crossSitePCA <- PCA(crossSite3, ncp = 10)
 crossSitePCAViz <- fviz_pca_ind(crossSitePCA, 
                                 geom.ind = c("point", "text"), 
                                 habillage = crossSite2$culture_id, repel = TRUE, labelsize=3) + 
@@ -198,6 +199,32 @@ crossSitePCAViz <- fviz_pca_ind(crossSitePCA,
 
 crossSitePCAViz
 
+crossSiteCor <- crossSitePCA$ind$coord
 
-CA(filter(crossSite, all>8)[3:20])
+crossSiteDend <- fviz_dend(hkmeans(crossSiteCor, k= 10))
+
+crossSiteElbow <- fviz_nbclust(crossSiteCor,
+                         hkmeans, method = "wss") +
+  labs(subtitle = "Elbow-Methode")
+
+crossSiteSil <- fviz_nbclust(crossSiteCor,
+                       hkmeans, method = "silhouette") +
+  labs(subtitle = "Silhouetten-Methode")
+
+crossSiteGap <- fviz_nbclust(crossSiteCor,
+                       hkmeans, method = "gap_stat") +
+  labs(subtitle = "Gap-Methode")
+
+crossSiteAnz <- list(crossSiteDend, crossSiteElbow, crossSiteSil, crossSiteGap)
+
+cowplot::plot_grid(plotlist = crossSiteAnz, labels = c("a", "b", "c", "d"))
+
+hkCrossSite <- hkmeans(crossSiteCor, k= 10,
+                       hc.metric = "euclidean", hc.method = "ward.D2")
+crossSiteClust$siteClust <- as.factor(hkCrossSite$cluster)
+
+crossSiteClust %>%
+crosstable(culture_en, by=siteClust, total = "both", 
+           drop_levels = TRUE, margin = "row", label = TRUE) %>%
+  as_flextable(keep_it = "TRUE")
 

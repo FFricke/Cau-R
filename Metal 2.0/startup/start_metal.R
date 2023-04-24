@@ -10,6 +10,7 @@ library(hrbrthemes)
 library(FactoMineR)
 library(factoextra)
 library(ggnewscale)
+library(crosstable)
 
 #Attributes----
 {
