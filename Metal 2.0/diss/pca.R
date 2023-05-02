@@ -80,14 +80,14 @@ library(factoextra)
                                 sum(case when mclust = 16 then 1 else 0 end) as Cluster6_4,
                                 sum(case when mclust = 17 then 1 else 0 end) as Cluster6_5,
                                 sum(case when mclust = 18 then 1 else 0 end) as Cluster7,
-                                count(mclust) as all, culture_en
+                                count(mclust) as all, culture_en, site_id
                                 
                                 
                                 from cau.feature join cau.find using (feature_id, site_id) join cau.ca using (find_id, site_id) join cau.culture using (culture_id) join cau.site using (site_id)
                                 
                                 where region_id != 6
                             
-                                group by site_dt, culture_id, culture_en;
+                                group by site_dt, culture_id, culture_en, site_id;
                             ")
     
     crossSite[3] <- crossSite[3]/crossSite[21]
@@ -221,10 +221,13 @@ cowplot::plot_grid(plotlist = crossSiteAnz, labels = c("a", "b", "c", "d"))
 
 hkCrossSite <- hkmeans(crossSiteCor, k= 10,
                        hc.metric = "euclidean", hc.method = "ward.D2")
+fviz_cluster(hkCrossSite)
+
 crossSiteClust$siteClust <- as.factor(hkCrossSite$cluster)
 
 crossSiteClust %>%
 crosstable(culture_en, by=siteClust, total = "both", 
            drop_levels = TRUE, margin = "row", label = TRUE) %>%
   as_flextable(keep_it = "TRUE")
+
 
